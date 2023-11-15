@@ -1,0 +1,1 @@
+let subVentana=window.open("https://www.google.es","nueva","height=800,width=600");
