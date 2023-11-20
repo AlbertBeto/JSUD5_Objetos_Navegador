@@ -27,6 +27,8 @@ document.write("Pérez")
 //Ya no hace falta llamar a window.document.
 //document.title = "Js Objeto Document"
 
+/*
+//GESTIÓN DE FECHAS 
 let fecha = new Date(); // Crea objeto Date almacena la fecha actual
 console.log(typeof fecha); // Imprime object
 console.log(fecha instanceof Date); // Imprime true
@@ -37,3 +39,26 @@ console.log(fecha); // Imprime fecha actual
 console.log(Date.now());
 //Esto nos devuelve el date de cuando se creo fecha
 console.log(Date.parse(fecha))
+*/
+
+//EXPRESIONES REGULARES
+let cad = "En un lugar de la Mancha, de cuyo nombre no quiero acordarme...";
+
+let mi_expresion = /Mancha/;
+let mi_2_expresion = /c[ou]/;
+document.write(cad+"<br>");
+document.write(mi_expresion+"<br>");
+document.write(mi_expresion.test(cad)+"<br>");
+document.write(mi_2_expresion+"<br>");
+document.write(mi_2_expresion.test(cad)+"<br>");
+//Esto imprime un array. Pero solo pone el primero que encuentra. 
+console.log(mi_2_expresion.exec(cad));
+
+let cad2 = "22 Carme 23";
+let expresion_23 = /\s\w\s\[0-9]/
+document.write(expresion_23.test(cad2)+"<br>");
+
+let dni = "38118313-e";
+let expresion_dni = /^[0-9]{8}[-][a-z]$/i
+document.write("DNI"+"<br>");
+document.write(expresion_dni.test(dni)+"<br>");
