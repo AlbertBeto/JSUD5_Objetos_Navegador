@@ -62,3 +62,20 @@ let dni = "38118313-e";
 let expresion_dni = /^[0-9]{8}[-][a-z]$/i
 document.write("DNI"+"<br>");
 document.write(expresion_dni.test(dni)+"<br>");
+
+let fecha = "31/12/1980";
+let expresion_fecha = /^[0-3][0-9][/][0|1][0-9][/]([0-9]{2}|[0-9]{4})$/i
+let expresion_fecha2 = /^[0-9]{2}[/][0-9]{2}[/]([0-9]{2}|[0-9]{4})$/i
+document.write("Fecha"+"<br>");
+document.write(expresion_fecha.test(fecha)+"<br>");
+
+let telefono = "(+123) 123-456-789";
+let expresion_telefono = /^[(+]{2}[0-9]{1,3}[)]\s[0-9]{3}[-][0-9]{3}[-][0-9]{3}$/i;
+let expresion_telefono2 = /^[0-9]{2}[/][0-9]{2}[/]([0-9]{2}|[0-9]{4})$/i;
+document.write("Teléfono"+"<br>");
+document.write(expresion_telefono.test(telefono)+"<br>");
+
+let email_simple = "albert@ggg.coms";
+let expresion_email_simple = /^[a-z]+[@][a-z]+[.]([com|org|es])+$/i
+document.write("Email"+"<br>");
+document.write(expresion_email_simple.test(email_simple)+"<br>");
