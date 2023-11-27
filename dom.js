@@ -38,6 +38,33 @@ hijo3.innerHTML="Hola <b>Caracola</b>";
 //atraves de seleccionarlo en el nodes. 
 //Le pongo un + y creo una conquetenacion de strings
 padre.childNodes[2].textContent+="Modifico solo el texto del padre";*/
-let listado_padre=document.querySelectorAll("#papa");
+
+/*
+let elemento = document.getElementById("papa");
+elemento = elemento.querySelectorAll("div:nth-child(odd");
+for (let i of elemento){
+    i.textContent +="modificado";
+}*/
+/*
+let listado_padre=document.querySelectorAll(padre);
 let impares = document.listado_padre.querySelectorAll("nth-child(even)");
-console.log(impares);
+*/
+
+//Creo reloj
+let tempo = document.getElementById("rellotge");
+setInterval(()=>{
+    let tempsAra = new Date;
+    tempo.textContent=tempsAra.getHours()+":"+tempsAra.getMinutes()+":"+tempsAra.getSeconds();
+}, 1000);
+
+// Crear Elementos
+let nuevo_elemento = document.createElement("div");
+
+nuevo_elemento.textContent = "Este es el div que he creado por programación";
+
+let elemento_nuevo = document.getElementById("papa");
+
+elemento_nuevo.appendChild(nuevo_elemento);
+
+//Creo un prompt que nos pida cosas hasta que demos un enter vacio y meta todas las cosas en un ol.
+
