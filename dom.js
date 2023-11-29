@@ -87,8 +87,8 @@ while (activa==1){
 }
 */
 
-
-//Insertar el código anterior antes del segundo div
+/*
+//Insertar el código anterior de meter una ol antes del segundo div del html
 let tag_ol = document.createElement("ol");
 let el_before = document.getElementById("2");
 let contenedor_padre = document.getElementById("papa");
@@ -108,18 +108,20 @@ while (activa==1){
         activa=0;
     }
 }
-
+*/
 
 /*
 //Vamos a borrar el div "3"
 let div3 = document.getElementById("3");
 //Opcion de hacerlo directamente
 //div3.remove();
+*/
 
-//Eliminar por herencia 
+/*
+//Eliminar por herencia PARA QUE FUNCIONE HAY QUE ACTIVAR EL EJERCICIO ANTERIOR. 
 let contenedor_padre = document.getElementById("papa");
 contenedor_padre.removeChild(div3);
-*/
+
 
 let cuanto_lis=tag_ol.children.length;
 console.log(cuanto_lis);
@@ -127,9 +129,89 @@ console.log(cuanto_lis);
 /*
 for(let i=cuanto_lis-1; i>=0; i--){
     tag_ol.removeChild(tag_ol.children[i]);
+}*/
+/*//ESTE ES EL MODO MÁS USADO
+//Con este codigo borramos de manera continua el  objeto hijo 0 hasta que no haya mas. 
+// ya que el while funciona mientras sea true y en Js mientras haya algo que no sea 0 es true. 
+while (tag_ol.children.length){
+    tag_ol.removeChild(tag_ol.children[0]);
 }
 */
 
-while (tag_ol.children.length){
-    tag_ol.removeChild(tag_ol.children[0]);
+//CON ESTE CAMBIAMOS EL VALOR O ATRIBUTO DEL HIJO DE UN ELEMENTO. 
+//element.replaceChild(newChildElem, oldChildElem) 
+
+///////ATRIBUTOS PARA ELEMENTOS
+/*
+//DIV PADRE Y CREAMOS 10 DIV INTERNOS Y LE DAMOS UN ID
+//AL ACABAR DOS PROMPTS QUE NOS PIDAN UN NUMERO DE DIV Y UN MENSAJE A IMPRIMIR EN EL. 
+
+let padre_de_muchos = document.getElementById("padre_de_muchos");
+
+for(let i=1;i<11;i++){
+    //primero creo un div
+    let neo_div = document.createElement("div");
+    // Le doy un atributo con el i del for
+    neo_div.setAttribute("id",i);
+    //Le añadimos un texto 
+    neo_div.textContent="Este es el contenedor "+i;
+    // Metemos el div en el div contenedor. 
+    padre_de_muchos.appendChild(neo_div); 
+}
+
+let escoge_div=prompt("Que Div quieres pintar?");
+let mensaje_div = prompt("Que mensaje quieres pintar?")
+
+//Esto es en dos pasos. Primero identificamos el div y luego le hacemos el textContent
+//let div_mod = document.getElementById(escoge_div);
+//div_mod.textContent="Este es el contenedor "+escoge_div+". El mensaje es: "+mensaje_div;
+//En un solo paso sería:
+document.getElementById(escoge_div).textContent="Este es el contenedor "+escoge_div+". El mensaje es: "+mensaje_div;
+*/
+// ATRIBUTO STYLE
+// Unos 400 divs vacios con width 100% con solo 2 o 3 pxs de heigth para hacer un gradiente de color. 
+// prompr con cinco popciones grises, azules, verdes, rojos, multicolori.
+//Margins 0
+
+let escoge_color = prompt("Escoge que gama de colores quieres? 1-Grises 2-Rojo 3-Verde 4-Azul 5-Multicolori");
+
+let padre_de_muchos = document.getElementById("padre_de_muchos");
+
+for(let i=1;i<401;i++){
+    //primero creo un div
+    let neo_div = document.createElement("div");
+    // Le doy un atributo con el i del for
+    neo_div.setAttribute("id",i);
+    //Le meto el atributo ancho
+    neo_div.style.width="100%";
+    //Le meto la altura
+    neo_div.style.height="2px";
+    //Color de fondo....
+    if(escoge_color==1){
+        if(i<256){
+        neo_div.style.backgroundColor="rgb("+i+","+i+","+i+")";}else{
+            //Falta acabar!!!!
+            neo_div.style.backgroundColor="rgb(255,"+(i-255)+",0)";
+        };
+    };
+    if(escoge_color==2){
+        if(i<256){
+        neo_div.style.backgroundColor="rgb("+i+",0,0)";}else{
+            neo_div.style.backgroundColor="rgb(255,"+(i-255)+",0)";
+        };
+    };
+    if(escoge_color==3){
+        if(i<256){
+        neo_div.style.backgroundColor="rgb(0,"+i+",0)";}else{
+        neo_div.style.backgroundColor="rgb(0,255,"+(i-255)+")";
+        };  
+    };
+    if(escoge_color==4){
+        if(i<256){
+        neo_div.style.backgroundColor="rgb(0,0,"+i+")";}else{
+        neo_div.style.backgroundColor="rgb(0,"+(i-255)+",255)";
+        };  
+    };
+    // Metemos el div en el div contenedor. 
+    padre_de_muchos.appendChild(neo_div); 
 }
