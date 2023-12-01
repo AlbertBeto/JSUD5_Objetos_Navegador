@@ -176,7 +176,7 @@ document.getElementById(escoge_div).textContent="Este es el contenedor "+escoge_
 let escoge_color = prompt("Escoge que gama de colores quieres? 1-Grises 2-Rojo 3-Verde 4-Azul 5-Multicolori");
 
 let padre_de_muchos = document.getElementById("padre_de_muchos");
-
+let grey_counter = 0;
 for(let i=1;i<401;i++){
     //primero creo un div
     let neo_div = document.createElement("div");
@@ -187,11 +187,12 @@ for(let i=1;i<401;i++){
     //Le meto la altura
     neo_div.style.height="2px";
     //Color de fondo....
+    
     if(escoge_color==1){
         if(i<256){
         neo_div.style.backgroundColor="rgb("+i+","+i+","+i+")";}else{
-            //Falta acabar!!!!
-            neo_div.style.backgroundColor="rgb(255,"+(i-255)+",0)";
+            grey_counter=grey_counter+2;
+            neo_div.style.backgroundColor="rgb("+(i-grey_counter)+","+(i-grey_counter)+","+(i-grey_counter)+")";
         };
     };
     if(escoge_color==2){
@@ -212,6 +213,39 @@ for(let i=1;i<401;i++){
         neo_div.style.backgroundColor="rgb(0,"+(i-255)+",255)";
         };  
     };
+    if(escoge_color==5){
+        //Este funciona y es una sola linea
+       neo_div.style.backgroundColor="rgb("+(Math.floor(Math.random()*255))+","+(Math.floor(Math.random()*255))+","+(Math.floor(Math.random()*255))+")";
+    }
+        /*//Este bloque funciona perfectamente pero es muy extenso y empieza en oscuro y acaba en clarito no mola
+        let aleatorio= Math.random()*10;
+        let redondo = Math.floor(aleatorio);
+        console.log(redondo);
+        if (redondo==0){
+            if(i<256){
+                neo_div.style.backgroundColor="rgb("+i+","+i+","+i+")";}else{
+                grey_counter=grey_counter+2;
+                neo_div.style.backgroundColor="rgb("+(i-grey_counter)+","+(i-grey_counter)+","+(i-grey_counter)+")";
+            };
+        } else if(redondo>0 && redondo<4){
+            if(i<256){
+                neo_div.style.backgroundColor="rgb("+i+",0,0)";}else{
+                    neo_div.style.backgroundColor="rgb(255,"+(i-255)+",0)";
+                };
+        } else if(redondo>3 && redondo<7){
+            if(i<256){
+                neo_div.style.backgroundColor="rgb(0,"+i+",0)";}else{
+                neo_div.style.backgroundColor="rgb(0,255,"+(i-255)+")";
+                };
+        
+        } else if(redondo>6 && redondo<10){
+            if(i<256){
+                neo_div.style.backgroundColor="rgb(0,0,"+i+")";}else{
+                neo_div.style.backgroundColor="rgb(0,"+(i-255)+",255)";
+                }; 
+        };*/
+    
     // Metemos el div en el div contenedor. 
     padre_de_muchos.appendChild(neo_div); 
-}
+    
+};
